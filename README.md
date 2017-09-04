@@ -1,2 +1,2 @@
 # WorldEyeProjection
-Gakken World Eye projection
+projection rendering for the product "Gakken WORLDEYE".
