@@ -10,7 +10,7 @@ public class MeshCreater : MonoBehaviour {
 	const int WIDTH = 64;
 	const int HEIGHT = 64;
 	const float SIZE = 1f;
-	const bool consider_aspect_ = false;
+	public bool ConsiderAspect = false;
 	private Mesh mesh_;
 	public enum Type {
 		Front,
@@ -82,7 +82,7 @@ public class MeshCreater : MonoBehaviour {
 		float x = k * Mathf.Cos(phi) * Mathf.Sin(lambda - lambda0);
 		float y = k * (Mathf.Cos(phi1) * Mathf.Sin(phi) - Mathf.Sin(phi1) * Mathf.Cos(phi) * Mathf.Cos( lambda - lambda0 ));
 
-		if (consider_aspect_) {
+		if (ConsiderAspect) {
 			var ratio = (float)Screen.width/(float)Screen.height;
 			x *= ratio;
 		}

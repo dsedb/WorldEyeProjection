@@ -33,3 +33,5 @@ sysinfo.txt
 *.unitypackage
 
 *~
+*.app
+.DS_Store
