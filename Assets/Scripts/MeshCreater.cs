@@ -10,7 +10,7 @@ public class MeshCreater : MonoBehaviour {
 	const int WIDTH = 64;
 	const int HEIGHT = 64;
 	const float SIZE = 1f;
-	const bool consider_aspect_ = true;
+	const bool consider_aspect_ = false;
 	private Mesh mesh_;
 	public enum Type {
 		Front,
