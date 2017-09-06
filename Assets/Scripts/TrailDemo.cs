@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrailDemo : MonoBehaviour {
 
+	public Transform lookat_;
 	Transform child_;
 
 	void Start()
@@ -27,5 +28,9 @@ public class TrailDemo : MonoBehaviour {
 		}
 		rb.AddForce(-transform.position*0.1f);
 		child_.position = transform.position.normalized * 10f;
+
+		if (lookat_ != null) {
+			lookat_.rotation = Quaternion.LookRotation(transform.position, lookat_.TransformVector(Vector3.up));
+		}
 	}
 }
