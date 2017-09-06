@@ -2250,6 +2250,11 @@ Prefab:
       propertyPath: near clip plane
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114353696875079862, guid: b3ecd8b9c35a245489f487edcc7d024e,
+        type: 2}
+      propertyPath: ConsiderAspect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3ecd8b9c35a245489f487edcc7d024e, type: 2}
   m_IsPrefabParent: 0

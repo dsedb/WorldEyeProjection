@@ -6,12 +6,19 @@ namespace UTJ {
 
 public class AzimuthalEquidistantProjection : MonoBehaviour {
 
-	public int rt_width_ = 256;
-	public int rt_height_ = 256;
+	public static bool sConsiderAspect = true;
+	public bool ConsiderAspect;
+	private int rt_width_ = 256;
+	private int rt_height_ = 256;
 	private RenderTexture[] rt_list_;
 	private Material[] mat_list_;
 
 	string[] names = new string[] { "Front", "Left", "Right", "Up", "Down", "Back", };
+
+	void Awake()
+	{
+		sConsiderAspect = ConsiderAspect;
+	}
 
 	void Start()
 	{

@@ -10,7 +10,6 @@ public class MeshCreater : MonoBehaviour {
 	const int WIDTH = 64;
 	const int HEIGHT = 64;
 	const float SIZE = 1f;
-	public bool ConsiderAspect = false;
 	private Mesh mesh_;
 	public enum Type {
 		Front,
@@ -24,10 +23,10 @@ public class MeshCreater : MonoBehaviour {
 
 	/*
 	 * http://mathworld.wolfram.com/AzimuthalEquidistantProjection.html
-	 * x	=	k^'cosphisin(lambda-lambda_0)	
-	 * y	=	k^'[cosphi_1sinphi-sinphi_1cosphicos(lambda-lambda_0)].	
-	 *  k^'=c/(sinc) 	
-	 *  cosc=sinphi_1sinphi+cosphi_1cosphicos(lambda-lambda_0), 
+	 * x    = k^'cosphisin(lambda-lambda_0)	
+	 * y    = k^'[cosphi_1sinphi-sinphi_1cosphicos(lambda-lambda_0)].	
+	 * k^'  = c/(sinc) 	
+	 * cosc = sinphi_1sinphi+cosphi_1cosphicos(lambda-lambda_0), 
 	 */
 	Vector3 map(Vector3 vertex, Type type)
 	{
@@ -63,14 +62,6 @@ public class MeshCreater : MonoBehaviour {
 				phi = Mathf.Atan2(n.y, len);
 				break;
 		}
-		// lambda = Mathf.Repeat(lambda, Mathf.PI*2f);
-		// if (lambda > Mathf.PI) {
-		// 	lambda -= Mathf.PI*2;
-		// }
-		// phi = Mathf.Repeat(phi, Mathf.PI*2f);
-		// if (phi > Mathf.PI) {
-		// 	phi -= Mathf.PI*2;
-		// }
 
 		const float lambda0 = 0;
 		const float phi1 = 0;
@@ -82,7 +73,7 @@ public class MeshCreater : MonoBehaviour {
 		float x = k * Mathf.Cos(phi) * Mathf.Sin(lambda - lambda0);
 		float y = k * (Mathf.Cos(phi1) * Mathf.Sin(phi) - Mathf.Sin(phi1) * Mathf.Cos(phi) * Mathf.Cos( lambda - lambda0 ));
 
-		if (ConsiderAspect) {
+		if (AzimuthalEquidistantProjection.sConsiderAspect) {
 			var ratio = (float)Screen.width/(float)Screen.height;
 			x *= ratio;
 		}
