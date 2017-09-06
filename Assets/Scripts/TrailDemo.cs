@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TrailDemo : MonoBehaviour {
 
+	Transform child_;
+
 	void Start()
 	{
 		transform.position = Random.onUnitSphere * 10f;
+		child_ = transform.Find("child");
 	}
 	
 	void FixedUpdate()
@@ -19,9 +22,10 @@ public class TrailDemo : MonoBehaviour {
 			}
 			var diff = go.transform.position - transform.position;
 			var len2 = diff.sqrMagnitude;
-			var force = diff.normalized / len2 * 100f;
+			var force = diff.normalized / len2 * 10f;
 			rb.AddForce(force);
 		}
-		rb.AddForce(-transform.position);
+		rb.AddForce(-transform.position*0.1f);
+		child_.position = transform.position.normalized * 10f;
 	}
 }
